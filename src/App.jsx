@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from "react";
 
 const API_BASE = "https://api.escuelajs.co/api/v1";
 
-// ─── Toast System ────────────────────────────────────────────────────────────
 function ToastContainer({ toasts, removeToast }) {
   return (
     <div className="fixed top-4 right-4 z-50 flex flex-col gap-2 w-80">
@@ -44,7 +43,6 @@ function useToasts() {
   return { toasts, add, remove };
 }
 
-// ─── Validation ───────────────────────────────────────────────────────────────
 function validateProduct(data) {
   const errors = {};
   if (!data.title || data.title.trim().length < 3)
@@ -62,7 +60,6 @@ function validateProduct(data) {
   return errors;
 }
 
-// ─── Product Form Modal ───────────────────────────────────────────────────────
 function ProductModal({ product, categories, onClose, onSave, loading }) {
   const isEdit = !!product?.id;
   const [form, setForm] = useState({
@@ -168,7 +165,6 @@ function ProductModal({ product, categories, onClose, onSave, loading }) {
   );
 }
 
-// ─── Delete Confirm Modal ─────────────────────────────────────────────────────
 function DeleteModal({ product, onClose, onConfirm, loading }) {
   return (
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
@@ -195,7 +191,6 @@ function DeleteModal({ product, onClose, onConfirm, loading }) {
   );
 }
 
-// ─── Main App ─────────────────────────────────────────────────────────────────
 export default function App() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
